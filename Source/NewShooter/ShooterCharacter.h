@@ -147,7 +147,7 @@ private:
 	UParticleSystem* ImpactParticles;
 
 	// Smoke trail for bullets
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* BeamParticles;
 
 	// True when aiming
