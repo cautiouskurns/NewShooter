@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "NewShooter",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "C:\\Program Files\\Epic Games\\UE_5.0"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"C_Cpp.default.forcedInclude": [
+			"${default}",
+			"C:\\Users\\diarm\\Documents\\Unreal Projects\\NewShooter\\Intermediate\\Build\\Win64\\UnrealEditor\\Development\\NewShooter\\Definitions.NewShooter.h",
+			"C:\\Users\\diarm\\Documents\\Unreal Projects\\NewShooter\\Intermediate\\Build\\Win64\\NewShooterEditor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
