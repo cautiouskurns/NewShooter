@@ -72,7 +72,9 @@ protected:
 	UFUNCTION()
 	void AutoFireReset();
 
-	
+	/* Linetrace for items under the crosshairs */
+	bool TraceUnderCrosshairs(FHitResult& OutHitResult);
+
 
 public:	
 	// Called every frame

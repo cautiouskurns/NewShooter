@@ -43,5 +43,6 @@ private:
 
 public:
 	// For getters and setters to access private variables from accessors  
+	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 
 };
