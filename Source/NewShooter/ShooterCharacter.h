@@ -210,6 +210,12 @@ private:
 	/* Sets a timer between gunshots */
 	FTimerHandle AutoFireTimer;
 
+	/* True if we should trace very frame for items */
+	bool bShouldTraceForItems;
+
+	// Number of overlapped AItems
+	int8 OverlappedItemCount;
+
 public:
 	// Returns CameraBoom subobject	
 	FORCEINLINE USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
