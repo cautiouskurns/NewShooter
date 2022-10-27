@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Components/SphereComponent.h"
+#include "ShooterCharacter.h"
 
 
 // Sets default values
@@ -37,6 +38,34 @@ void AItem::BeginPlay()
 	// Hide pickup widget
 	PickupWidget->SetVisibility(false);
 	
+}
+
+void AItem::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Overlapping"));
+
+	if (OtherActor)
+	{
+		AShooterCharacter* ShooterCharacter = Cast<AShooterCharacter>(OtherActor); // 
+		if (ShooterCharacter)
+		{
+			//ShooterCharacter->IncrementOverlappedItemCount(1);
+		}
+	}
+}
+
+void AItem::OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Stopped Overlapping"));
+
+	if (OtherActor)
+	{
+		AShooterCharacter* ShooterCharacter = Cast<AShooterCharacter>(OtherActor); // 
+		if (ShooterCharacter)
+		{
+			//ShooterCharacter->IncrementOverlappedItemCount(-1);
+		}
+	}
 }
 
 // Called every frame
