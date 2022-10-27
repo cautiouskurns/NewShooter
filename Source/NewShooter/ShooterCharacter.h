@@ -228,4 +228,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetCrosshairSpreadMultiplier() const;
 
+	// Getter for OverlappedITemCount
+	FORCEINLINE int8 GetOverlappedItemCount() const { return OverlappedItemCount; }
+
+	/* Adds/subtracts to/from OverlappedAItemCount and updates bShouldTraceForItems */
+	void IncrementOverlappedItemCount(int8 Amount);
+
 };
