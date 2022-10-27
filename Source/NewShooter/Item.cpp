@@ -37,6 +37,10 @@ void AItem::BeginPlay()
 
 	// Hide pickup widget
 	PickupWidget->SetVisibility(false);
+
+	// Setup overlap for AreaSphere
+	AreaSphere->OnComponentBeginOverlap.AddDynamic(this, &AItem::OnSphereOverlap);
+	AreaSphere->OnComponentEndOverlap.AddDynamic(this, &AItem::OnSphereEndOverlap);
 	
 }
 
