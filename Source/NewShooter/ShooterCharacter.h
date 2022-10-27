@@ -75,6 +75,9 @@ protected:
 	/* Linetrace for items under the crosshairs */
 	bool TraceUnderCrosshairs(FHitResult& OutHitResult, FVector& OutHitLocation);
 
+	/* Trace for items if OverlappedItemCount > 0 */
+	void TraceForItems();
+
 
 public:	
 	// Called every frame

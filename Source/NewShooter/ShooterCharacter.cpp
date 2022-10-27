@@ -425,6 +425,27 @@ bool AShooterCharacter::TraceUnderCrosshairs(FHitResult& OutHitResult, FVector& 
 	return false;
 }
 
+void AShooterCharacter::TraceForItems()
+{
+	if (bShouldTraceForItems)
+	{
+		FHitResult ItemTraceResult;
+		FVector HitLocation;
+		TraceUnderCrosshairs(ItemTraceResult, HitLocation);
+		if (ItemTraceResult.bBlockingHit)
+		{
+			AItem* HitItem = Cast<AItem>(ItemTraceResult.GetActor());
+			if (HitItem && HitItem->GetPickupWidget())
+			{
+				// Show Items PickupWidget
+				HitItem->GetPickupWidget()->SetVisibility(true);
+
+				UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
+			}
+		}
+	}
+}
+
 
 
 void AShooterCharacter::StartCrosshairBulletFire()
@@ -453,24 +474,7 @@ void AShooterCharacter::Tick(float DeltaTime)
 	// Calculate crosshair spread multiplier
 	CalculateCrosshairSpread(DeltaTime);
 
-	if (bShouldTraceForItems)
-	{
-		FHitResult ItemTraceResult;
-		FVector HitLocation;
-		TraceUnderCrosshairs(ItemTraceResult, HitLocation);
-		if (ItemTraceResult.bBlockingHit)
-		{
-			AItem* HitItem = Cast<AItem>(ItemTraceResult.GetActor());
-			if (HitItem && HitItem->GetPickupWidget())
-			{
-				// Show Items PickupWidget
-				HitItem->GetPickupWidget()->SetVisibility(true);
-
-				UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
-			}
-		}
-	}
-	//UE_LOG(LogTemp, Warning, TEXT("Not looking at weapon"));
+	TraceForItems();
 }
 
 
