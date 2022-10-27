@@ -467,7 +467,7 @@ void AShooterCharacter::Tick(float DeltaTime)
 			UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
 		}
 	}
-	UE_LOG(LogTemp, Warning, TEXT("Not looking at weapon"));
+	//UE_LOG(LogTemp, Warning, TEXT("Not looking at weapon"));
 }
 
 
