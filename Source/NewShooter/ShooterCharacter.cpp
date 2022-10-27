@@ -463,8 +463,11 @@ void AShooterCharacter::Tick(float DeltaTime)
 		{
 			// Show Items PickupWidget
 			HitItem->GetPickupWidget()->SetVisibility(true);
+
+			UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
 		}
 	}
+	UE_LOG(LogTemp, Warning, TEXT("Not looking at weapon"));
 }
 
 
