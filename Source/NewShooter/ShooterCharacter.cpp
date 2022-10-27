@@ -531,3 +531,23 @@ float AShooterCharacter::GetCrosshairSpreadMultiplier() const
 	return CrosshairSpreadMultiplier;
 }
 
+void AShooterCharacter::IncrementOverlappedItemCount(int8 Amount)
+{
+	if (OverlappedItemCount + Amount <= 0)
+	{
+		OverlappedItemCount = 0;
+		bShouldTraceForItems = false;
+
+		UE_LOG(LogTemp, Warning, TEXT("OverlappedItemCount = %d"), OverlappedItemCount);
+		UE_LOG(LogTemp, Warning, TEXT("bShouldTraceForItems = %s"), (bShouldTraceForItems ? TEXT("true") : TEXT("false")));
+
+	}
+	else
+	{
+		OverlappedItemCount += Amount;
+		bShouldTraceForItems = true;
+
+		UE_LOG(LogTemp, Warning, TEXT("OverlappedItemCount = %d"), OverlappedItemCount);
+		UE_LOG(LogTemp, Warning, TEXT("bShouldTraceForItems = %s"), (bShouldTraceForItems ? TEXT("true") : TEXT("false")));
+	}
+}
