@@ -73,7 +73,7 @@ protected:
 	void AutoFireReset();
 
 	/* Linetrace for items under the crosshairs */
-	bool TraceUnderCrosshairs(FHitResult& OutHitResult);
+	bool TraceUnderCrosshairs(FHitResult& OutHitResult, FVector& OutHitLocation);
 
 
 public:	

@@ -4,6 +4,8 @@
 #include "Item.h"
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
+#include "Components/SphereComponent.h"
+
 
 // Sets default values
 AItem::AItem()
@@ -22,6 +24,9 @@ AItem::AItem()
 
 	PickupWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("PickupWidget"));
 	PickupWidget->SetupAttachment(GetRootComponent());
+
+	AreaSphere = CreateDefaultSubobject<USphereComponent>(TEXT("AreaSphere")); // Construct an AreaSphere sub object of type USphereComponent and called AreaSphere
+	AreaSphere->SetupAttachment(GetRootComponent()); // Attach AreaSphere to the root component of the parent class by accessing the SetupAttachment function of USceneComponent
 }
 
 // Called when the game starts or when spawned

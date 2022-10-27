@@ -41,6 +41,10 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
 	class UWidgetComponent* PickupWidget;
 
+	/* Enables item tracing when overlapped */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* AreaSphere;
+
 public:
 	// For getters and setters to access private variables from accessors  
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
