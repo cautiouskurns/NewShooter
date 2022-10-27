@@ -453,18 +453,21 @@ void AShooterCharacter::Tick(float DeltaTime)
 	// Calculate crosshair spread multiplier
 	CalculateCrosshairSpread(DeltaTime);
 
-	FHitResult ItemTraceResult;
-	FVector HitLocation;
-	TraceUnderCrosshairs(ItemTraceResult, HitLocation);
-	if (ItemTraceResult.bBlockingHit)
+	if (bShouldTraceForItems)
 	{
-		AItem* HitItem = Cast<AItem>(ItemTraceResult.GetActor());
-		if (HitItem && HitItem->GetPickupWidget())
+		FHitResult ItemTraceResult;
+		FVector HitLocation;
+		TraceUnderCrosshairs(ItemTraceResult, HitLocation);
+		if (ItemTraceResult.bBlockingHit)
 		{
-			// Show Items PickupWidget
-			HitItem->GetPickupWidget()->SetVisibility(true);
+			AItem* HitItem = Cast<AItem>(ItemTraceResult.GetActor());
+			if (HitItem && HitItem->GetPickupWidget())
+			{
+				// Show Items PickupWidget
+				HitItem->GetPickupWidget()->SetVisibility(true);
 
-			UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
+				UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
+			}
 		}
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("Not looking at weapon"));
