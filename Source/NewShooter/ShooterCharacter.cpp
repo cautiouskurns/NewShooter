@@ -439,10 +439,28 @@ void AShooterCharacter::TraceForItems()
 			{
 				// Show Items PickupWidget
 				HitItem->GetPickupWidget()->SetVisibility(true);
-
-				UE_LOG(LogTemp, Warning, TEXT("Looking at weapon"));
 			}
+
+			// We hit an AItem last frame
+			if (TraceHitItemLastFrame)
+			{
+				if (HitItem != TraceHitItemLastFrame)
+				{
+					// We are hitting a different AItem this frame from last frame
+					// Or AItem is null
+					TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
+				}
+			}
+
+			// Store a reference to hit item for next frame
+			TraceHitItemLastFrame = HitItem;
 		}
+	}
+	else if (TraceHitItemLastFrame)
+	{
+		// No longer overlapping
+		// Item last frame should not show widget
+		TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
 	}
 }
 

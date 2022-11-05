@@ -55,6 +55,14 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* AreaSphere;
 
+	/* The name which appears on the item widget */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	FString ItemName;
+
+	/* Item count (ammo etc) */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	int32 ItemCount;
+
 public:
 	// For getters and setters to access private variables from accessors  
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
